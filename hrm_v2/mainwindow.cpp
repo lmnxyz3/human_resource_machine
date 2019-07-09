@@ -4,20 +4,28 @@
 #include"qinputdialog.h"
 #include"QString"
 #include"QLabel"
+#include"QSoundEffect"
 #include <QPropertyAnimation>
 #include<qdebug.h>
+#include<QScreen>
 #include"QVector"
 
+QSoundEffect *player=new QSoundEffect();
 QStandardItemModel *model = new QStandardItemModel();
 QVector<QString> stringVector;
 int iSel;
+int on_play=-1;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    QScreen *screen=QGuiApplication::primaryScreen ();
+    QRect mm=screen->availableGeometry() ;
+    int screen_width = mm.width();
+    int screen_height = mm.height();
+
+
     QPixmap pixmap = QPixmap(":/resource/main0.jpg");
-    this->resize(1260,930);
-    this->setAutoFillBackground(true);
     QPalette  palette (this->palette());
     palette.setBrush(this->backgroundRole(),QBrush(pixmap.scaled(this->size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation)));
     this-> setPalette( palette );
@@ -33,7 +41,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 void setheader(Ui::MainWindow *ui){
     model->clear();
     model->setColumnCount(1);
@@ -57,6 +64,7 @@ void MainWindow::on_pushButton_6_clicked()
     QString new_item;
     new_item="inbox";
     stringVector.push_back(new_item);
+    iSel=stringVector.size()-1;
     setheader(ui);
 }
 
@@ -65,14 +73,19 @@ void MainWindow::on_pushButton_7_clicked()
     QString new_item;
     new_item="outbox";
     stringVector.push_back(new_item);
+    iSel=stringVector.size()-1;
     setheader(ui);
 }
 
 void MainWindow::on_pushButton_8_clicked()
 {
     QString new_item;
-    new_item="copyto";
+    new_item="copyto ";
+    QInputDialog *qinput=new QInputDialog();
+    QString num_s=qinput->getText(this,"input","input copyto pos");
+    new_item=new_item+num_s;
     stringVector.push_back(new_item);
+    iSel=stringVector.size()-1;
     setheader(ui);
 }
 
@@ -80,8 +93,12 @@ void MainWindow::on_pushButton_8_clicked()
 void MainWindow::on_pushButton_9_clicked()
 {
     QString new_item;
-    new_item="copyfrom";
+    new_item="copyfrom ";
+    QInputDialog *qinput=new QInputDialog();
+    QString num_s=qinput->getText(this,"input","input copyfrom pos");
+    new_item=new_item+num_s;
     stringVector.push_back(new_item);
+    iSel=stringVector.size()-1;
     setheader(ui);
 }
 
@@ -90,6 +107,7 @@ void MainWindow::on_pushButton_10_clicked()
     QString new_item;
     new_item="add";
     stringVector.push_back(new_item);
+    iSel=stringVector.size()-1;
     setheader(ui);
 }
 
@@ -99,6 +117,7 @@ void MainWindow::on_pushButton_11_clicked()
     QString new_item;
     new_item="sub";
     stringVector.push_back(new_item);
+    iSel=stringVector.size()-1;
     setheader(ui);
 }
 
@@ -112,6 +131,7 @@ void MainWindow::on_pushButton_12_clicked()
     QString num_s=qinput->getText(this,"input","input jump line");
     new_item=new_item+num_s;
     stringVector.push_back(new_item);
+    iSel=stringVector.size()-1;
     setheader(ui);
 }
 
@@ -124,6 +144,7 @@ void MainWindow::on_pushButton_13_clicked()
     QString num_s=qinput->getText(this,"input","input jump line");
     new_item=new_item+num_s;
     stringVector.push_back(new_item);
+    iSel=stringVector.size()-1;
     setheader(ui);
 }
 
@@ -136,6 +157,7 @@ void MainWindow::on_pushButton_14_clicked()
     QString num_s=qinput->getText(this,"input","input jump line");
     new_item=new_item+num_s;
     stringVector.push_back(new_item);
+    iSel=stringVector.size()-1;
     setheader(ui);
 }
 
@@ -193,4 +215,24 @@ void MainWindow::on_pushButton_clicked()
 
         /*  开始执行动画 QAbstractAnimation::DeleteWhenStopped 动画结束后进行自清理(效果就好像智能指针里的自动delete animation) */
         animation->start(QAbstractAnimation::DeleteWhenStopped);
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    if(on_play==-1){
+        player->setSource(QUrl::fromLocalFile(":/resource/music.wav"));
+        player->setVolume(50);
+        player->play();
+        on_play=1;
+    }
+
+    else if(on_play==1){
+        on_play=0;
+        player->stop();
+    }
+    else if(on_play==0){
+        on_play=1;
+        player->play();
+    }
+
 }
