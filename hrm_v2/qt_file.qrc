@@ -8,5 +8,15 @@
         <file>resource/main0.jpg</file>
         <file>resource/man0.png</file>
         <file>resource/man1.png</file>
+        <file>resource/back.png</file>
+        <file>resource/add.png</file>
+        <file>resource/copyfrom.png</file>
+        <file>resource/copyto.png</file>
+        <file>resource/inbox.png</file>
+        <file>resource/jump.png</file>
+        <file>resource/jump_negative.png</file>
+        <file>resource/jump_zero.png</file>
+        <file>resource/outbox.png</file>
+        <file>resource/sub.png</file>
     </qresource>
 </RCC>
