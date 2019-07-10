@@ -8,19 +8,17 @@
 #include<qdebug.h>
 #include<QScreen>
 #include"QVector"
+#include"QQueue"
 
 QStandardItemModel *model = new QStandardItemModel();
-QVector<QString> stringVector;
+extern QVector<QString> stringVector;
+
 int iSel=0;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    QScreen *screen=QGuiApplication::primaryScreen ();
-    QRect mm=screen->availableGeometry() ;
-
-
     QPixmap pixmap = QPixmap(":/resource/main0.jpg");
     QPalette  palette (this->palette());
     palette.setBrush(this->backgroundRole(),QBrush(pixmap.scaled(this->size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation)));

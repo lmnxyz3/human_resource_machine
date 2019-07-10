@@ -221,6 +221,7 @@ Makefile: ..\human_resource_machine.pro D:\qt12\5.12.3\msvc2017_64\mkspecs\win32
 		D:\qt12\5.12.3\msvc2017_64\mkspecs\features\qt_config.prf \
 		D:\qt12\5.12.3\msvc2017_64\mkspecs\win32-msvc\qmake.conf \
 		D:\qt12\5.12.3\msvc2017_64\mkspecs\features\spec_post.prf \
+		.qmake.stash \
 		D:\qt12\5.12.3\msvc2017_64\mkspecs\features\exclusive_builds.prf \
 		D:\qt12\5.12.3\msvc2017_64\mkspecs\common\msvc-version.conf \
 		D:\qt12\5.12.3\msvc2017_64\mkspecs\features\toolchain.prf \
@@ -394,6 +395,7 @@ D:\qt12\5.12.3\msvc2017_64\mkspecs\features\qt_functions.prf:
 D:\qt12\5.12.3\msvc2017_64\mkspecs\features\qt_config.prf:
 D:\qt12\5.12.3\msvc2017_64\mkspecs\win32-msvc\qmake.conf:
 D:\qt12\5.12.3\msvc2017_64\mkspecs\features\spec_post.prf:
+.qmake.stash:
 D:\qt12\5.12.3\msvc2017_64\mkspecs\features\exclusive_builds.prf:
 D:\qt12\5.12.3\msvc2017_64\mkspecs\common\msvc-version.conf:
 D:\qt12\5.12.3\msvc2017_64\mkspecs\features\toolchain.prf:

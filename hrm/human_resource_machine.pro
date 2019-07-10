@@ -26,14 +26,20 @@ CONFIG += c++11
 
 SOURCES += \
         ../view/mainwindow.cpp \
-        main.cpp
+        common/common.cpp \
+        common/initial.cpp \
+        main.cpp \
+        view/select_level.cpp
 
 HEADERS += \
-    ../view/mainwindow.h
+    ../view/mainwindow.h \
+    common/common.h \
+    common/initial.h \
+    view/select_level.h
 
 FORMS += \
         ../view/mainwindow.ui \
-        mainwindow.ui
+        view/select_level.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
