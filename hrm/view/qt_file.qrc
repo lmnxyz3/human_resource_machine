@@ -19,5 +19,7 @@
         <file>resource/outbox.png</file>
         <file>resource/sub.png</file>
         <file>resource/music.wav</file>
+        <file>resource/back1.png</file>
+        <file>resource/g.png</file>
     </qresource>
 </RCC>

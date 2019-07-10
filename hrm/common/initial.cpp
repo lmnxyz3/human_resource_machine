@@ -1,11 +1,19 @@
 #include"initial.h"
+
 using namespace std;
 void initial(int g)
 {
     int size,num,i;
     string fname;
-    fname="g";
-    fname=fname+to_string(num)+".txt";
+    inbox.clear();
+    outbox.clear();
+    copybox.clear();
+    if(g==1)fname="g1.txt";
+    if(g==2)fname="g2.txt";
+    if(g==3)fname="g3.txt";
+    if(g==4)fname="g4.txt";
+    if(g==5)fname="g5.txt";
+
     ifstream infile;
     infile.open(fname);
     infile>>size;

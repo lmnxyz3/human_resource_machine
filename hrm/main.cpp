@@ -1,14 +1,17 @@
 #include "./view/mainwindow.h"
 #include <QApplication>
 #include"QDebug"
+#include"./view/select_level.h"
 #include"./common/common.h"
-#include"./common/initial.h"
 int main(int argc, char *argv[])
 {
-    initial(1);
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    select_level w0;
+    w0.show();
+    a.exec();
+
+    MainWindow w1;
+    w1.show();
 
     a.exec();
 
