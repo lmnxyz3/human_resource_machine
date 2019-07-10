@@ -13,7 +13,7 @@
 QSoundEffect *player=new QSoundEffect();
 QStandardItemModel *model = new QStandardItemModel();
 QVector<QString> stringVector;
-int iSel;
+int iSel=0;
 int on_play=-1;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -33,8 +33,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->pushButton_2->setStyleSheet("background-image:url(:/resource/button1.png)");
 
-    ui->label->setStyleSheet("background-image:url(:/resource/man0.png);");
-    ui->label->setGeometry(140,320,68,68);
+    ui->label->setStyleSheet("background-image:url(:/resource/man1.png);color:rgb(84, 83, 20);");
+    ui->label->setContentsMargins(28,0,0,35);
+    ui->label->setText("13");
+    ui->label->setGeometry(155,420,68,68);
 }
 
 MainWindow::~MainWindow()
@@ -105,7 +107,11 @@ void MainWindow::on_pushButton_9_clicked()
 void MainWindow::on_pushButton_10_clicked()
 {
     QString new_item;
-    new_item="add";
+    new_item="add ";
+    QInputDialog *qinput=new QInputDialog();
+
+    QString num_s=qinput->getText(this,"input","input add pos");
+    new_item=new_item+num_s;
     stringVector.push_back(new_item);
     iSel=stringVector.size()-1;
     setheader(ui);
@@ -115,7 +121,11 @@ void MainWindow::on_pushButton_10_clicked()
 void MainWindow::on_pushButton_11_clicked()
 {
     QString new_item;
-    new_item="sub";
+    new_item="sub ";
+    QInputDialog *qinput=new QInputDialog();
+
+    QString num_s=qinput->getText(this,"input","input sub pos");
+    new_item=new_item+num_s;
     stringVector.push_back(new_item);
     iSel=stringVector.size()-1;
     setheader(ui);
@@ -192,9 +202,8 @@ void MainWindow::on_pushButton_16_clicked()
 {
     QString s1;
     QModelIndex index=ui->tableView->selectionModel()->currentIndex();
-    qDebug()<<index;
     if(index.row()>=0)iSel = index.row();
-    if(iSel==stringVector.size()-1)return;
+    if(iSel>=stringVector.size()-1)return;
     swap(stringVector[iSel],stringVector[iSel+1]);
     iSel++;
     setheader(ui);
@@ -205,11 +214,11 @@ void MainWindow::on_pushButton_clicked()
 {
     QPropertyAnimation *animation = new QPropertyAnimation(ui->label, "geometry");
     animation->setDuration(1000);
-        /*  设置动画的起始状态 起始点 (1,2)  起始大小 (3,4)  */
+        /*  设置动画的起始状态   */
 
-        animation->setStartValue(QRect(140, 320, 68, 68));
-        /*  设置动画的结束状态 结束点 (100,200)  结束大小 (300,400)  */
-        animation->setKeyValueAt(1, QRect(500, 320, 68, 68));
+        animation->setStartValue(QRect(155, 420, 68, 68));
+        /*  设置动画的结束状态   */
+        animation->setKeyValueAt(1, QRect(520, 420, 68, 68));
 
         /*  设置动画效果  */
 
