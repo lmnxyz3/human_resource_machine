@@ -1,5 +1,6 @@
 #include "interpreter.h"
 
+<<<<<<< HEAD
 bool Interpreter::Interpreter_Step(){
 
     QString s = stringVector.at(state.command_ptr);
@@ -7,11 +8,24 @@ bool Interpreter::Interpreter_Step(){
     if ( word.at(0)=="inbox" ){
         if(state.pin>=inbox.size())return false;
         state.p->setpos(my_left);
+=======
+void Interpreter::Interpreter_Step(){
+
+    QString s = stringVector.at(state.command_ptr);
+    QStringList word = s.split(" ");
+    state.command_ptr++;
+    if ( word.at(0)=="inbox" ){
+        state.p->setpos(left);
+>>>>>>> de1cf0497ff3c131ace210238f7cddf74d47a623
         state.p->setcarry(true);
         state.p->setcontent(state.in_box[state.pin++]);
     }
     else if (word.at(0)=="outbox"){
+<<<<<<< HEAD
         state.p->setpos(my_right);
+=======
+        state.p->setpos(right);
+>>>>>>> de1cf0497ff3c131ace210238f7cddf74d47a623
         if (state.p->getcarry()){
             state.out_box[state.pout++] = state.p->getcontent();
             state.p->setcarry(false);
@@ -19,7 +33,11 @@ bool Interpreter::Interpreter_Step(){
     }
     else if (word.at(0)=="copyto") {
         int temp = word.at(1).toInt();
+<<<<<<< HEAD
         state.p->setpos(my_mid);
+=======
+        state.p->setpos(mid);
+>>>>>>> de1cf0497ff3c131ace210238f7cddf74d47a623
         if (state.p->getcarry()){
             state.copybox_item[temp] = state.p->getcontent();
             state.copybox_flag[temp] = true;
@@ -27,7 +45,11 @@ bool Interpreter::Interpreter_Step(){
     }
     else if (word.at(0)=="copyfrom") {
         int temp = word.at(1).toInt();
+<<<<<<< HEAD
         state.p->setpos(my_mid);
+=======
+        state.p->setpos(mid);
+>>>>>>> de1cf0497ff3c131ace210238f7cddf74d47a623
         if (state.copybox_flag[temp]){
            state.p->setcontent(state.copybox_item[temp]);
            state.p->setcarry(true);
@@ -39,7 +61,11 @@ bool Interpreter::Interpreter_Step(){
         int n2 = 0;
         if (state.copybox_flag[temp])
             n2 = state.copybox_item[temp];
+<<<<<<< HEAD
         state.p->setpos(my_mid);
+=======
+        state.p->setpos(mid);
+>>>>>>> de1cf0497ff3c131ace210238f7cddf74d47a623
         if (state.p->getcarry())
             state.p->setcontent(n1+n2);
     }
@@ -49,7 +75,11 @@ bool Interpreter::Interpreter_Step(){
         int n2 = 0;
         if (state.copybox_flag[temp])
             n2 = state.copybox_item[temp];
+<<<<<<< HEAD
         state.p->setpos(my_mid);
+=======
+        state.p->setpos(mid);
+>>>>>>> de1cf0497ff3c131ace210238f7cddf74d47a623
         if (state.p->getcarry())
             state.p->setcontent(n1-n2);
     }
@@ -59,24 +89,37 @@ bool Interpreter::Interpreter_Step(){
         if (word.at(1)=="if"){
             if (word.at(2)=="zero"){
                 if (state.p->getcontent() == 0){
+<<<<<<< HEAD
                     state.command_ptr = word.at(3).toInt()-1;
+=======
+                    state.command_ptr = word.at(3).toInt();
+>>>>>>> de1cf0497ff3c131ace210238f7cddf74d47a623
                 }
                 else state.command_ptr++;
             }
             else if (word.at(2)=="negative"){
                 if (state.p->getcontent() < 0){
+<<<<<<< HEAD
                     state.command_ptr = word.at(3).toInt()-1;
+=======
+                    state.command_ptr = word.at(3).toInt();
+>>>>>>> de1cf0497ff3c131ace210238f7cddf74d47a623
                 }
                 else state.command_ptr++;
             }
         }
         else{
+<<<<<<< HEAD
             state.command_ptr = word.at(1).toInt()-1;
+=======
+            state.command_ptr = word.at(1).toInt();
+>>>>>>> de1cf0497ff3c131ace210238f7cddf74d47a623
         }
     }
     else
         state.command_ptr++;
 
+<<<<<<< HEAD
     return true;
 }
 
@@ -104,11 +147,38 @@ void Interpreter::Interpreter_All(){
     }
 
     if (state.pout == outbox.size()){
+=======
+    move.push_back(state);
+}
+
+void Interpreter::Interpreter_All(){
+    QVector<QString>::iterator i;
+    QVector<int>::iterator  j;
+    int k;
+    ifsuccess = false;
+    for (k=0,j = inbox.begin();j!=inbox.end();k++,j++ ){
+        state.in_box[k] = inbox.at(k);
+    }
+
+    for (k=0,j = copybox.begin();j!=copybox.end();k++,j++ ){
+        state.copybox_item[k] = copybox.at(k);
+        if (state.copybox_item[k]!=-1){
+            state.copybox_flag[k] = true;
+        }
+    }
+
+    for ( i=stringVector.begin();i!=stringVector.end();i++){
+          Interpreter_Step();
+    }
+
+    if (state.pout+1 == outbox.size()){
+>>>>>>> de1cf0497ff3c131ace210238f7cddf74d47a623
         for ( k = 0; k < state.pout; k++ ){
             if (state.out_box[k] != outbox.at(k))
                 break;
         }
         if ( k == state.pout ){
+<<<<<<< HEAD
               ifsuccess = 2;
         }
     }
@@ -123,4 +193,10 @@ void Interpreter::init_interpreter()
     state.p->setcontent(0);
     state.command_ptr=0;
     for(int i=0;i<6;i++)state.copybox_flag[i]=false;
+=======
+              ifsuccess = true;
+        }
+    }
+
+>>>>>>> de1cf0497ff3c131ace210238f7cddf74d47a623
 }
