@@ -13,21 +13,30 @@ class person
 {
     int pos;
     bool carry;
-    QString content;
+    int content;
 public:
     person(){
         pos=0;
         carry=false;
-        content="";
+        content=0;
     }
     ~person();
+    void setpos(int p){pos = p;}
+    void setcarry(bool ok){carry = ok;}
+    void setcontent(int s){content = s;}
+
+    int getpos(){return pos;}
+    bool getcarry(){return carry;}
+    int getcontent(){return content;}
 };
+
 class common
 {
+public:
     int in_box[20];
-    int in_ptr;
+    int pin;
+    int pout;
     int out_box[20];
-    int out_ptr;
 
     bool copybox_flag[6];
     int copybox_item[6];
@@ -36,8 +45,8 @@ class common
     
     int command_ptr;
     common(){
-        in_ptr=0;
-        out_ptr=0;
+        pin = 0;
+        pout = 0;
         command_ptr=0;
         for(int i=0;i<6;i++)copybox_flag[i]=false;
     }
