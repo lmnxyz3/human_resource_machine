@@ -1,4 +1,5 @@
 #include"initial.h"
+#include"QDebug"
 
 using namespace std;
 void initial(int g)
@@ -8,14 +9,12 @@ void initial(int g)
     inbox.clear();
     outbox.clear();
     copybox.clear();
-    if(g==1)fname="g1.txt";
-    if(g==2)fname="g2.txt";
-    if(g==3)fname="g3.txt";
-    if(g==4)fname="g4.txt";
-    if(g==5)fname="g5.txt";
-
     ifstream infile;
-    infile.open(fname);
+    if(g==1)infile.open("C:\\level\\g1.txt");
+    else if(g==2)infile.open("C:\\level\\g2.txt");
+    else if(g==3)infile.open("C:\\level\\g3.txt");
+    else if(g==4)infile.open("C:\\level\\g4.txt");
+    else infile.open("C:\\level\\g5.txt");
     infile>>size;
     for(i=0;i<size;i++){
         infile>>num;
@@ -31,6 +30,7 @@ void initial(int g)
         infile>>num;
         copybox.push_back(num);
     }
-    infile>>tips;
+    infile>>fname;
+    tips=QString::fromStdString(fname);
     infile.close();
 }

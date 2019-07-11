@@ -2,19 +2,16 @@
 #define INTERPRETER_H
 #include<QVector>
 #include<QString>
-#include "human.h"
+#include "./common/common.h"
 
 class Interpreter
 {
 public: 
-    Interpreter();
-    Interpreter( QVector<QString> *s,Human* human):sv(s),character(human){}
-
-    QVector<QString> *sv;
-    Human *character;
-    int currentcode; //current code in sv to interprete
+    common state;
+    Interpreter()=default;
     void Interpreter_All();
-    void Interpreter_Step();
+    bool Interpreter_Step();
+    void Interpreter::init_interpreter();
 };
 
 #endif // INTERPRETER_H

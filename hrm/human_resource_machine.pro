@@ -3,7 +3,7 @@
 # Project created by QtCreator 2019-07-10T11:28:09
 #
 #-------------------------------------------------
-
+QT       += multimedia
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -29,13 +29,15 @@ SOURCES += \
         common/common.cpp \
         common/initial.cpp \
         main.cpp \
-        view/select_level.cpp
+        view/select_level.cpp \
+        viewmodel/interpreter.cpp
 
 HEADERS += \
     ../view/mainwindow.h \
     common/common.h \
     common/initial.h \
-    view/select_level.h
+    view/select_level.h \
+    viewmodel/interpreter.h
 
 FORMS += \
         ../view/mainwindow.ui \

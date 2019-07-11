@@ -5,47 +5,61 @@
 #include"QQueue"
 #include"string"
 
-#define left 0
-#define mid 1
-#define right 2
+#define my_left 0
+#define my_mid 1
+#define my_right 2
 
 class person
 {
     int pos;
     bool carry;
-    QString content;
+    int content;
 public:
     person(){
         pos=0;
         carry=false;
-        content="";
+        content=0;
     }
     ~person();
+    void setpos(int p){pos = p;}
+    void setcarry(bool ok){carry = ok;}
+    void setcontent(int s){content = s;}
+
+    int getpos(){return pos;}
+    bool getcarry(){return carry;}
+    int getcontent(){return content;}
 };
+
 class common
 {
+public:
     int in_box[20];
-    int in_ptr;
+    int pin;
+    int pout;
     int out_box[20];
-    int out_ptr;
 
     bool copybox_flag[6];
     int copybox_item[6];
 
     person *p=new person;
-    
+
     int command_ptr;
     common(){
-        in_ptr=0;
-        out_ptr=0;
+        pin = 0;
+        pout = 0;
         command_ptr=0;
         for(int i=0;i<6;i++)copybox_flag[i]=false;
     }
+    common(const common &obj);
 };
 extern QVector<int> inbox;
 extern QVector<int> outbox;
 extern QVector<int> copybox;
-extern std::string tips;
+extern QString tips;
 extern QVector<QString> stringVector;
-extern QQueue< common> move;
+extern QQueue< common> m_move;
+extern int quit;
+extern int stop;
+extern int complete;
+extern int ifsuccess;
 #endif

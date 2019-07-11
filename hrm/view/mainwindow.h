@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include"./common/common.h"
 namespace Ui {
 class MainWindow;
 }
@@ -12,6 +13,13 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
+    void MainWindow::box_move(common m_step);
+
+    void MainWindow::move_step();
+    void MainWindow::human_move(common m_step);
+    void MainWindow::init_box();
+    void MainWindow::init_mainwindow();
+
     ~MainWindow();
 
 
@@ -48,6 +56,12 @@ private slots:
 
 
     void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_5_clicked();
 
 private:
     Ui::MainWindow *ui;
