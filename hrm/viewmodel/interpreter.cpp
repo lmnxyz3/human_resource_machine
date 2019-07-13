@@ -57,7 +57,7 @@ bool Interpreter::Interpreter_Step(){
         common new_state=common(state);
         m_move.push_back(new_state);
     }
-    if (word.at(0)=="jump") {
+    else if (word.at(0)=="jump") {
         if (word.at(1)=="if"){
             if (word.at(2)=="zero"){
                 if (state.p->getcontent() == 0){
