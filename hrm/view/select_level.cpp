@@ -1,6 +1,7 @@
 #include "select_level.h"
 #include "ui_select_level.h"
 #include"./common/initial.h"
+#include"begin_window.h"
 
 select_level::select_level(QWidget *parent) :
     QMainWindow(parent),
@@ -42,4 +43,11 @@ void select_level::on_pushButton_5_clicked()
 {
     initial(5);
     this->close();
+}
+
+void select_level::on_pushButton_6_clicked()
+{
+    this->close();
+    begin_window *begin_w=new begin_window();
+    begin_w->show();
 }

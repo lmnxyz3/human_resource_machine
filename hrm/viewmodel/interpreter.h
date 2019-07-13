@@ -11,7 +11,7 @@ public:
     Interpreter()=default;
     void Interpreter_All();
     bool Interpreter_Step();
-    void Interpreter::init_interpreter();
+    void init_interpreter();
 };
 
 #endif // INTERPRETER_H

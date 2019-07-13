@@ -9,6 +9,7 @@ QVector<int> copybox;
 QString tips;
 QVector<QString> stringVector;
 QQueue<common> m_move;
+int begin_quit=0;
 int quit,complete,stop;
 int ifsuccess=0;
 common::common(const common &obj)

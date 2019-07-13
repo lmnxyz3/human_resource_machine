@@ -26,6 +26,7 @@ CONFIG += c++11
 
 SOURCES += \
         ../view/mainwindow.cpp \
+        begin_window.cpp \
         common/common.cpp \
         common/initial.cpp \
         main.cpp \
@@ -34,6 +35,7 @@ SOURCES += \
 
 HEADERS += \
     ../view/mainwindow.h \
+    begin_window.h \
     common/common.h \
     common/initial.h \
     view/select_level.h \
@@ -41,6 +43,7 @@ HEADERS += \
 
 FORMS += \
         ../view/mainwindow.ui \
+        begin_window.ui \
         view/select_level.ui
 
 # Default rules for deployment.

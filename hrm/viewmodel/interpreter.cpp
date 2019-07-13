@@ -53,8 +53,10 @@ bool Interpreter::Interpreter_Step(){
         if (state.p->getcarry())
             state.p->setcontent(n1-n2);
     }
-    common new_state=common(state);
-    m_move.push_back(new_state);
+    if(word.at(0)!="jump"){
+        common new_state=common(state);
+        m_move.push_back(new_state);
+    }
     if (word.at(0)=="jump") {
         if (word.at(1)=="if"){
             if (word.at(2)=="zero"){

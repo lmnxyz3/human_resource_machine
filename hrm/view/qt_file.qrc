@@ -28,5 +28,6 @@
         <file>resource/box5.png</file>
         <file>resource/box.png</file>
         <file>resource/music.wav</file>
+        <file>resource/mainback.jpg</file>
     </qresource>
 </RCC>

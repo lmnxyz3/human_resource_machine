@@ -1,17 +1,17 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
 #include"QStandardItemModel"
 #include"qinputdialog.h"
 #include"QString"
 #include"QLabel"
-#include"common/common.h"
 #include"QSoundEffect"
 #include <QPropertyAnimation>
 #include<qdebug.h>
-#include"QTimer"
-#include<QSequentialAnimationGroup>
 #include"QVector"
 #include"QQueue"
+#include<QMessageBox>
+
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include"common/common.h"
 int pos0,pos1;
 int pin,pout;
 bool carry;
@@ -220,7 +220,6 @@ void MainWindow::on_pushButton_18_clicked()
 
 void MainWindow::on_pushButton_15_clicked()
 {
-    QString s1;
     QModelIndex index=ui->tableView->selectionModel()->currentIndex();
     if(index.row()>=0)iSel = index.row();
     if(iSel==0)return;
@@ -231,7 +230,6 @@ void MainWindow::on_pushButton_15_clicked()
 
 void MainWindow::on_pushButton_16_clicked()
 {
-    QString s1;
     QModelIndex index=ui->tableView->selectionModel()->currentIndex();
     if(index.row()>=0)iSel = index.row();
     if(iSel>=stringVector.size()-1)return;
@@ -464,6 +462,21 @@ void MainWindow::move_step()
     if(stringVector.size()!=0)model->item(iSel,0)->setBackground(QBrush(c));
     ui->tableView->setModel(model);
     m_move.pop_front();
+    if(m_move.size()==0){
+        if(ifsuccess==2){
+            ifsuccess=0;
+            QMessageBox::information(this,"success", "任务成功");
+            init_box();
+            init_mainwindow();
+
+        }
+        else if(ifsuccess==1){
+            ifsuccess=0;
+            QMessageBox::information(this,"error","任务失败");
+            init_box();
+            init_mainwindow();
+        }
+    }
 }
 void MainWindow::init_box()
 {
@@ -511,8 +524,52 @@ void MainWindow::init_box()
     ui->box2_3->hide();
     ui->box2_4->hide();
     ui->box2_5->hide();
+    if(copybox[0]==-1)
+        ui->label_2->setText("");
+    else{
+        QString str = QString::number(copybox[0]);
+        ui->label_2->setText(str);
+    }
+
+    if(copybox[1]==-1)
+        ui->label_3->setText("");
+    else{
+        QString str = QString::number(copybox[1]);
+        ui->label_3->setText(str);
+    }
+    if(copybox[2]==-1)
+        ui->label_4->setText("");
+    else{
+        QString str = QString::number(copybox[2]);
+        ui->label_4->setText(str);
+    }
+    if(copybox[3]==-1)
+        ui->label_5->setText("");
+    else{
+        QString str = QString::number(copybox[3]);
+        ui->label_5->setText(str);
+    }
+    if(copybox[4]==-1)
+        ui->label_6->setText("");
+    else{
+        QString str = QString::number(copybox[4]);
+        ui->label_6->setText(str);
+    }
+    if(copybox[5]==-1)
+        ui->label_7->setText("");
+    else{
+        QString str = QString::number(copybox[5]);
+        ui->label_7->setText(str);
+    }
+
+
     if(stringVector.size()!=0)setheader(ui);
+    ui->textBrowser->setText(tips);
     player->setSource(QUrl::fromLocalFile(":/resource/music.wav"));
+    ui->label->setStyleSheet("background-image:url(:/resource/man0.png)");
+    ui->label->setContentsMargins(28,0,0,35);
+    ui->label->setText("");
+    ui->label->setGeometry(155,420,68,68);
 }
 void MainWindow::on_pushButton_4_clicked()
 {
@@ -553,4 +610,28 @@ void MainWindow::on_pushButton_5_clicked()
             on_play=1;
             player->play();
         }
+}
+
+void MainWindow::on_pushButton_19_clicked()
+{
+    QString s1;
+    QModelIndex index=ui->tableView->selectionModel()->currentIndex();
+    if(index.row()>=0)iSel = index.row();
+    s1=stringVector[iSel];
+    if(s1=="inbox"||s1=="outbox")return;
+    QInputDialog *qinput=new QInputDialog();
+    QString num_s=qinput->getText(this,"change","input new line(pos)");
+    if(stringVector[iSel].at(s1.size()-1)==" "){
+        s1=stringVector[iSel]+num_s;
+        swap(stringVector[iSel],s1);
+    }
+    else if(stringVector[iSel].at(s1.size()-2)==" "){
+        s1=stringVector[iSel].mid(0,s1.size()-1)+num_s;
+        swap(stringVector[iSel],s1);
+    }
+    else{
+        s1=stringVector[iSel].mid(0,s1.size()-2)+num_s;
+        swap(stringVector[iSel],s1);
+    }
+    setheader(ui);
 }

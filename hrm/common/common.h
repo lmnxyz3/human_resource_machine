@@ -59,6 +59,7 @@ extern QString tips;
 extern QVector<QString> stringVector;
 extern QQueue< common> m_move;
 extern int quit;
+extern int begin_quit;
 extern int stop;
 extern int complete;
 extern int ifsuccess;
