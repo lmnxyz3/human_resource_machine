@@ -28,7 +28,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(85, 170, 0);
+     <string notr="true">background-color:rgb(163, 245, 0);
 font: 14pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
@@ -45,7 +45,7 @@ font: 14pt &quot;Arial&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(85, 170, 0);
+     <string notr="true">background-color:rgb(163, 245, 0);
 font: 14pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
@@ -62,7 +62,7 @@ font: 14pt &quot;Arial&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(85, 170, 0);
+     <string notr="true">background-color:rgb(163, 245, 0);
 font: 14pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
