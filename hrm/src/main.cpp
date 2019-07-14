@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
                         while(m_move.size()>0)m_move.pop_front();
                         stop=0;
                         ifsuccess=0;
+                        w1.init_box();
                     }
                 }
                 if(!quit)w1.show();
