@@ -25,7 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        ../view/mainwindow.cpp \
+        view/mainwindow.cpp \
         begin_window.cpp \
         common/common.cpp \
         common/initial.cpp \
@@ -34,7 +34,7 @@ SOURCES += \
         viewmodel/interpreter.cpp
 
 HEADERS += \
-    ../view/mainwindow.h \
+    view/mainwindow.h \
     begin_window.h \
     common/common.h \
     common/initial.h \
@@ -42,7 +42,7 @@ HEADERS += \
     viewmodel/interpreter.h
 
 FORMS += \
-        ../view/mainwindow.ui \
+        view/mainwindow.ui \
         begin_window.ui \
         view/select_level.ui
 
