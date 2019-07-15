@@ -1,7 +1,6 @@
 #include "interpreter.h"
 
 bool Interpreter::Interpreter_Step(){
-
     QString s = stringVector.at(state.command_ptr);
     QStringList word = s.split(" ");
     if ( word.at(0)=="inbox" ){
