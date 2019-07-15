@@ -5,7 +5,7 @@
 #include"./common/common.h"
 #include"./viewmodel/interpreter.h"
 #include"QMessageBox"
-#include"begin_window.h"
+#include"./view/begin_window.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

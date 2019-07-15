@@ -1,4 +1,4 @@
-#include "begin_window.h"
+#include "./view/begin_window.h"
 #include "ui_begin_window.h"
 #include"./common/common.h"
 #include"./view/select_level.h"
