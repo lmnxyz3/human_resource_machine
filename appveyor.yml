@@ -2,13 +2,13 @@ version: 1.2.{build}
 image: Visual Studio 2017
 install:
 - cmd: >-
-    set QTDIR=C:\Qt\5.12\mingw73_32
+    set QTDIR=C:\Qt\5.12.2\mingw73_64
     set PATH=%QTDIR%\bin;C:\cygwin;C:\cygwin64;C:\MinGW\bin;%PATH%;
 build_script:
 - cmd: >-
-    qmake human_resource_machine_.pro
-    mingw32-make release
-    mingw32-make clean
+    qmake human_resource_machine.pro
+    mingw64-make release
+    mingw64-make clean
     cd release
     windeployqt human_resource_machine.exe
 artifacts:
