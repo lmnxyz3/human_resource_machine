@@ -6,7 +6,6 @@ install:
     set PATH=%QTDIR%\bin;C:\cygwin;C:\cygwin64;C:\MinGW\bin;%PATH%;
 build_script:
 - cmd: >-
-    cd hrm\src
     qmake human_resource_machine_.pro
     mingw32-make release
     mingw32-make clean
