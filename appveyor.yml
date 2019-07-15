@@ -8,7 +8,7 @@ install:
 - cmd: >-
     git submodule update --init --recursive
 
-    call 'D:\visual studio\VC\Auxiliary\Build\vcvarsall.bat' x86_amd64
+    call "D:\visual studio\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
 
     call %QTDIR%\bin\qtenv2.bat
 before_build:
