@@ -5,13 +5,19 @@ install:
     set QTDIR=C:\Qt\5.12.2\mingw73_64
     
     set PATH=%QTDIR%\bin;%PATH%;
+    
 build_script:
 - cmd: >-
     qmake human_resource_machine.pro
+    
     mingw64-make release
+    
     mingw64-make clean
+    
     cd release
+    
     windeployqt human_resource_machine.exe
+    
 artifacts:
 - path: release/
   name: human_resource_machine
