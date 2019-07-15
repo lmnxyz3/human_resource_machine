@@ -1,26 +1,18 @@
-version: 1.0.{build}
-image: Visual Studio 2017
-configuration: Release
-environment:
-  QTDIR: D:\qt12\5.12.3\msvc2017_64
-  PATH: '%PATH%;D:\qt12\5.12.3\msvc2017_64\bin;C:\Program Files\Git\bin;D:\qt12\Tools\QtCreator\bin'
+version: 1.2.{build}
+image: Visual Studio 2015
 install:
 - cmd: >-
-    git submodule update --init --recursive
-
-before_build:
+    set QTDIR=C:\Qt\5.11.1\mingw53_32
+    set PATH=%QTDIR%\bin;C:\cygwin;C:\cygwin64;C:\MinGW\bin;%PATH%;
+build_script:
 - cmd: >-
-    cd %APPVEYOR_BUILD_FOLDER%\hrm\src
-
-    qmake human_resource_machine.pro
-build:
-  verbosity: minimal
-after_build:
-- cmd: >-
-    jom qmake_all
-
-    jom.exe -f Makefile.Release
+    cd hrm\src
+    qmake human_resource_machine_.pro
+    mingw32-make release
+    mingw32-make clean
+    cd release
+    windeployqt human_resource_machine.exe
 artifacts:
-- path: '\hrm\src\release'
+- path: release/
   name: human_resource_machine
   type: WebDeployPackage
