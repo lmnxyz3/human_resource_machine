@@ -55,4 +55,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    ../view/qt_file.qrc
+    view/qt_file.qrc
