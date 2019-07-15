@@ -2,7 +2,7 @@ version: 1.2.{build}
 image: Visual Studio 2017
 install:
 - cmd: >-
-    set QTDIR=C:\Qt\5.12.3\mingw73_32
+    set QTDIR=C:\Qt\5.12\mingw73_32
     set PATH=%QTDIR%\bin;C:\cygwin;C:\cygwin64;C:\MinGW\bin;%PATH%;
 build_script:
 - cmd: >-
