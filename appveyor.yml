@@ -3,7 +3,7 @@ image: Visual Studio 2017
 install:
 - cmd: >-
     set QTDIR=C:\Qt\5.12.2\mingw73_64
-    set PATH=%QTDIR%\bin;
+    set PATH=%QTDIR%\bin;%PATH%;
 build_script:
 - cmd: >-
     qmake human_resource_machine.pro
