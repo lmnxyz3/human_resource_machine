@@ -4,7 +4,7 @@ install:
 - cmd: >-
     set QTDIR=C:\Qt\5.12.2\mingw73_64
     
-    set PATH=%QTDIR%\bin;%PATH%;
+    set PATH=%QTDIR%\bin;C:\cygwin;C:\cygwin64;C:\MinGW\bin;%PATH%;
     
 build_script:
 - cmd: >-
