@@ -3,13 +3,12 @@ image: Visual Studio 2017
 configuration: Release
 environment:
   QTDIR: D:\qt12\5.12.3\msvc2017_64
-  VS: D:\visual studio\VC\Auxiliary\Build
   PATH: '%PATH%;D:\qt12\5.12.3\msvc2017_64\bin;C:\Program Files\Git\bin;D:\qt12\Tools\QtCreator\bin'
 install:
 - cmd: >-
     git submodule update --init --recursive
 
-    call VS\vcvarsall.bat x86_amd64
+    call 'D:\visual studio\VC\Auxiliary\Build\vcvarsall.bat' x86_amd64
 
     call %QTDIR%\bin\qtenv2.bat
 before_build:
