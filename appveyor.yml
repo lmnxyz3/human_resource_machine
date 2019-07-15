@@ -1,0 +1,24 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+configuration: Release
+environment:
+  QTDIR: D:\qt12\5.12.3\msvc2017_64
+  PATH: D:\qt12\5.12.3\msvc2017_64\bin;C:\Program Files\Git\bin
+install:
+- cmd: >-
+    git submodule update --init --recursive
+
+    call %QTDIR%\bin\qtenv2.bat
+
+    set PATH=%PATH%;%QTDIR%\bin;%MINGW%\bin
+
+    if %QTDIR:_64=%==%QTDIR% ( set ARCH=x86 ) else set ARCH=x64
+build_script:
+- cmd: >-
+    cd %APPVEYOR_BUILD_FOLDER%\hrm\src
+
+    '%make%'
+artifacts:
+- path: '\hrm\src\release'
+  name: human_resource_machine
+  type: WebDeployPackage
