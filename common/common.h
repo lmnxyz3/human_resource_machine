@@ -63,4 +63,5 @@ extern int begin_quit;
 extern int stop;
 extern int complete;
 extern int ifsuccess;
+extern int num_step;
 #endif

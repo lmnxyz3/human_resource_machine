@@ -12,6 +12,7 @@ QQueue<common> m_move;
 int begin_quit=0;
 int quit,complete,stop;
 int ifsuccess=0;
+int num_step=0;
 common::common(const common &obj)
 {
     pin = obj.pin;

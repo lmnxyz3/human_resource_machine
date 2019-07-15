@@ -83,12 +83,12 @@ bool Interpreter::Interpreter_Step(){
 }
 
 void Interpreter::Interpreter_All(){
-    int num=0;
     bool flag;
     flag=true;
     QVector<int>::iterator  j;
     int k;
     ifsuccess = 1;
+    num_step=0;
     for (k=0,j = inbox.begin();j!=inbox.end();k++,j++ ){
         state.in_box[k] = inbox.at(k);
     }
@@ -100,9 +100,9 @@ void Interpreter::Interpreter_All(){
         }
     }
 
-    while(state.command_ptr<stringVector.size()&&state.pout<outbox.size()&&flag&&num<=100){
+    while(state.command_ptr<stringVector.size()&&state.pout<outbox.size()&&flag&&num_step<=500){
           flag=Interpreter_Step();
-          num++;
+          num_step++;
     }
 
     if (state.pout == outbox.size()){

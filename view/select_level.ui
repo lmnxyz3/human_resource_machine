@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1260</width>
+    <height>930</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>select_level</string>
+   <string>SelectLevel</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-image:url(:/resource/back1.png);</string>
@@ -20,8 +20,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>60</y>
+      <x>190</x>
+      <y>90</y>
       <width>59</width>
       <height>59</height>
      </rect>
@@ -38,8 +38,8 @@ color:rgb(95, 91, 67)</string>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>60</y>
+      <x>400</x>
+      <y>90</y>
       <width>59</width>
       <height>59</height>
      </rect>
@@ -56,8 +56,8 @@ color:rgb(95, 91, 67);</string>
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>60</y>
+      <x>620</x>
+      <y>90</y>
       <width>59</width>
       <height>59</height>
      </rect>
@@ -74,8 +74,8 @@ color:rgb(95, 91, 67);</string>
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>60</y>
+      <x>840</x>
+      <y>90</y>
       <width>59</width>
       <height>59</height>
      </rect>
@@ -92,8 +92,8 @@ color:rgb(95, 91, 67);</string>
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>60</y>
+      <x>1070</x>
+      <y>90</y>
       <width>59</width>
       <height>59</height>
      </rect>
@@ -110,8 +110,8 @@ color:rgb(95, 91, 67);</string>
    <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>470</y>
+      <x>100</x>
+      <y>780</y>
       <width>81</width>
       <height>71</height>
      </rect>

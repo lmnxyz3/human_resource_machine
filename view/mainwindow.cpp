@@ -464,8 +464,10 @@ void MainWindow::move_step()
     m_move.pop_front();
     if(m_move.size()==0){
         if(ifsuccess==2){
+            QString s="任务成功!所用步数为 ";
+            s=s+QString::number(num_step);
             ifsuccess=0;
-            QMessageBox::information(this,"success", "任务成功");
+            QMessageBox::information(this,"success",s);
             init_box();
             init_mainwindow();
 
