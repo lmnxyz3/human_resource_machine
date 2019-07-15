@@ -13,12 +13,12 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-    void MainWindow::box_move(common m_step);
+    void box_move(common m_step);
 
-    void MainWindow::move_step();
-    void MainWindow::human_move(common m_step);
-    void MainWindow::init_box();
-    void MainWindow::init_mainwindow();
+    void move_step();
+    void human_move(common m_step);
+    void init_box();
+    void init_mainwindow();
 
     ~MainWindow();
 
