@@ -18,7 +18,7 @@ win10
 
 ----
 
-![main](readimg\main.png)
+![main](测试图片/main.png)
 
 #### 主界面说明
 
