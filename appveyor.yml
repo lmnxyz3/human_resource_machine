@@ -22,3 +22,12 @@ artifacts:
 - path: release/
   name: human_resource_machine
   type: WebDeployPackage
+  
+deploy:
+  provider: GitHub
+  auth_token: bd1212de4c540be12822ba745a45622be2b61708
+  description: 'v1.1'
+  draft: false
+  prerelease: false
+  on:
+      APPVEYOR_REPO_TAG: true
